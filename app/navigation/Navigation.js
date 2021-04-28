@@ -25,7 +25,7 @@ function screenOptions(route, color) {
             iconName = "bone"
             break;
         case "search" :
-            iconName = "map-search-outline"
+            iconName = "city"
             break;
         case "account" :
             iconName = "dog"
