@@ -1,21 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import Navigation from "./app/navigation/Navigation"
+import { firebaseApp } from "./app/utils/firebase"
+import * as firebase from "firebase"
+import { useEffect } from 'react';
+
 
 export default function App() {
+
+  useEffect(() => {
+    firebase.auth().onAuthStateChanged((user) => {
+        console.log(user);
+    })
+  }, [])
+
   return (
-    <View style={styles.container}>
-      <Text>hello world!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Navigation />
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+console.disableYellowBox = true
+
+
