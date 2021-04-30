@@ -5,7 +5,26 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest --watchAll=false",
+    "test-coverage": "jest --verbose --coverage  --testPathPattern=\".test.js\" --verbose --runInBand"
+  },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base |react-native-safe-area-context|@sentry/.*|rn-pdf-reader-js)"
+    ],
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js"
+    ],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    },
+    "setupFilesAfterEnv": [
+      "@testing-library/jest-native/extend-expect"
+    ]
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
@@ -33,7 +52,14 @@
   },
   "devDependencies": {
     "@babel/core": "^7.9.0",
-    "jest": "^26.6.3"
+    "@testing-library/jest-native": "^3.4.3",
+    "@testing-library/react-native": "^7.1.0",
+    "babel-jest": "^26.6.3",
+    "babel-preset-expo": "^8.3.0",
+    "enzyme-to-json": "^3.6.1",
+    "jest": "^26.6.3",
+    "jest-expo": "^39.0.0",
+    "react-test-renderer": "^16.13.1"
   },
   "private": true
 }
