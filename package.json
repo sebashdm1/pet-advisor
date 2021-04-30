@@ -12,9 +12,12 @@
     "@react-navigation/bottom-tabs": "~5.2.6",
     "@react-navigation/native": "~5.1.5",
     "@react-navigation/stack": "~5.2.10",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16.1": "^1.6.4",
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
     "firebase": "~8.2.3",
+    "jest-enzyme": "^7.1.2",
     "lodash": "^4.17.21",
     "react": "16.13.1",
     "react-dom": "16.13.1",
@@ -29,7 +32,8 @@
     "react-native-web": "~0.13.12"
   },
   "devDependencies": {
-    "@babel/core": "^7.9.0"
+    "@babel/core": "^7.9.0",
+    "jest": "^26.6.3"
   },
   "private": true
 }
