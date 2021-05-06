@@ -12,8 +12,9 @@ describe('when the form is mounted', () => {
         component = render(<MockedNavigation component={Register} />);
     })
 
-    it('there must be a create a register form screen ', () => {
-        console.log(component)
+    it('there must be  create a register form screen ', () => {
+       expect(component).toBeDefined();
+       expect(component.getByTestId("image-01")).toBeDefined();
     });
 
 });

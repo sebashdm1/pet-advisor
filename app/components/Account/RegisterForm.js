@@ -61,7 +61,8 @@ export default function RegisterForm(props) {
 
     return(
         <View style={styles.formContainer}>
-           <Input 
+           <Input
+              testID="input-one" 
               label="Email"
               containerStyle={styles.inputForm}
               onChange={(e) => onChange(e, "email")}
