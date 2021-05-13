@@ -7,11 +7,13 @@ import RegisterForm from "../../components/Account/RegisterForm"
 
 export default function Register() {
     const toastRef = useRef();
+    
 
      return(
          <KeyboardAwareScrollView>
-              <Image 
-               source={require("../../../assets/img/pet-advisor-logo.png")}
+              <Image
+               testID='image-01'
+               source={{uri: '../../../assets/img/pet-advisor-logo.png'}}
                resizeMode="contain"
                style={styles.logo}
               />
@@ -19,6 +21,7 @@ export default function Register() {
                   <RegisterForm toastRef={toastRef}/>
               </View>
               <Toast 
+                  testID='toast-register'
                   ref={toastRef}
                   position="center"
                   opacity={0.9}

@@ -61,7 +61,8 @@ export default function RegisterForm(props) {
 
     return(
         <View style={styles.formContainer}>
-           <Input 
+           <Input
+              testID="email" 
               label="Email"
               containerStyle={styles.inputForm}
               onChange={(e) => onChange(e, "email")}
@@ -73,6 +74,7 @@ export default function RegisterForm(props) {
               }
            />
            <Input 
+              testID="password"
               containerStyle={styles.inputForm}
               password={true}
               onChange={(e) => onChange(e, "password")}
@@ -87,6 +89,7 @@ export default function RegisterForm(props) {
             }
            />
            <Input 
+              testID="repeat-password"
               containerStyle={styles.inputForm}
               password={true}
               onChange={(e) => onChange(e, "repeatPassword")}
@@ -101,6 +104,7 @@ export default function RegisterForm(props) {
             }
            />
            <Button
+              testID="button"
               title="Registrarse"
               containerStyle={styles.btnContainerStyle} 
               buttonStyle={styles.btnStyle}
