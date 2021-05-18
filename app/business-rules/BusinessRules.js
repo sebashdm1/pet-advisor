@@ -1,4 +1,4 @@
-function smallDog(number) {
+export function smallDog(number) {
   var myMap = new Map()
   myMap.set(1, 15)
   myMap.set(2, 23)
@@ -14,7 +14,7 @@ function smallDog(number) {
   return myMap.get(number)
 }
 
-function mediumDog(number) {
+export function mediumDog(number) {
   var myMap = new Map()
   myMap.set(1, 15)
   myMap.set(2, 24)
@@ -30,7 +30,7 @@ function mediumDog(number) {
   return myMap.get(number)
 }
 
-function largeDog(number) {
+export function largeDog(number) {
   var myMap = new Map()
   myMap.set(1, 14)
   myMap.set(2, 22)
