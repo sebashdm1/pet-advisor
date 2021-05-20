@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack'
 import Account from '../screens/Account/Account'
 import Login from '../screens/Account/Login'
 import Register from '../screens/Account/Register'
+import AddPet from '../screens/Account/RegisterPet'
 
 const Stack = createStackNavigator()
 
@@ -26,7 +27,7 @@ export default function AccountStack() {
       />
       <Stack.Screen
         name="add-pet"
-        component={Register}
+        component={AddPet}
         options={{title: 'Agregar Mascota'}}
       />
     </Stack.Navigator>
