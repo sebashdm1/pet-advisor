@@ -46,13 +46,33 @@ export function largeDog(number) {
   return myMap.get(number)
 }
 
-export function calculateDogAge(age, size) {
+export function catAge(number) {
+  var myMap = new Map()
+  myMap.set(1, 15)
+  myMap.set(2, 24)
+  myMap.set(3, 28)
+  myMap.set(4, 32)
+  myMap.set(5, 36)
+  myMap.set(6, 40)
+  myMap.set(7, 44)
+  myMap.set(8, 48)
+  myMap.set(9, 52)
+  myMap.set(10, 56)
+  myMap.set(11, 60)
+  return myMap.get(number)
+}
+
+export function calculateDogAge(ageDog, size) {
   switch (size) {
     case 1:
-      return smallDog(age)
+      return ageDog > 11 ? 'mas de 60' : smallDog(ageDog)
     case 2:
-      return mediumDog(age)
+      return ageDog > 11 ? 'mas de 65' : mediumDog(ageDog)
     case 3:
-      return largeDog(age)
+      return ageDog > 11 ? 'mas de 72' : largeDog(ageDog)
   }
+}
+
+export function calculateCatAge(ageCat) {
+  return ageCat > 11 ? 'mas de 60' : catAge(ageCat)
 }
