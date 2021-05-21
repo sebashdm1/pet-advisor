@@ -1,17 +1,31 @@
 export function QuantityFoodToDog(weight) {
   var foodMap = new Map()
-  foodMap.set(1, 50)
-  foodMap.set(4, 150)
-  foodMap.set(7, 200)
-  foodMap.set(10, 250)
-  foodMap.set(15, 325)
-  foodMap.set(20, 400)
-  foodMap.set(25, 450)
-  foodMap.set(30, 550)
-  foodMap.set(40, 650)
-  foodMap.set(50, 750)
-  foodMap.set(60, 850)
-  foodMap.set(70, 950)
-  foodMap.set(80, 1.125)
+    .set(1, 50)
+    .set(4, 150)
+    .set(7, 200)
+    .set(10, 250)
+    .set(15, 325)
+    .set(20, 400)
+    .set(25, 450)
+    .set(30, 550)
+    .set(40, 650)
+    .set(60, 850)
+    .set(70, 950)
+    .set(80, 1.125)
+  return foodMap.get(weight)
+}
+
+export function QuantityFoodToCat(weight) {
+  let morthan
+  if (weight >= 6) {
+    morthan = weight
+  }
+  var foodMap = new Map()
+  foodMap
+    .set(1, '30 a 40')
+    .set(3, '40 a 55')
+    .set(4, '45 a 65')
+    .set(5, '55 a 75')
+    .set(morthan, '11g por Kg')
   return foodMap.get(weight)
 }

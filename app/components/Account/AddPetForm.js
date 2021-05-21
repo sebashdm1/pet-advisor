@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {StyleSheet, ScrollView, Alert, Dimensions} from 'react-native'
 import {Input, Icon, Button} from 'react-native-elements'
 import Loading from '../Loading'
@@ -20,7 +20,6 @@ export default function AddPetForm(props) {
 
   const addPet = () => {
     setIsLoading(true)
-    setHumanAge(calculateDogAge(age, 2))
     firebase
       .database()
       .ref('pets/')
@@ -43,6 +42,10 @@ export default function AddPetForm(props) {
       })
   }
 
+  useEffect(() => {
+    setHumanAge(calculateDogAge(age, 2))
+  }, [age])
+
   return (
     <ScrollView style={styles.scrollView}>
       <Input
@@ -62,7 +65,9 @@ export default function AddPetForm(props) {
         testID="pet-age"
         label="edad mascota"
         rightIcon={<Icon type="material-community" name="counter" />}
-        onChange={e => setAge(e.nativeEvent.text)}
+        onChange={e => {
+          setAge(e.nativeEvent.text)
+        }}
       />
       <Input
         testID="pet-weight"
