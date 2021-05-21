@@ -1,0 +1,17 @@
+export function QuantityFoodToDog(weight) {
+  var foodMap = new Map()
+  foodMap.set(1, 50)
+  foodMap.set(4, 150)
+  foodMap.set(7, 200)
+  foodMap.set(10, 250)
+  foodMap.set(15, 325)
+  foodMap.set(20, 400)
+  foodMap.set(25, 450)
+  foodMap.set(30, 550)
+  foodMap.set(40, 650)
+  foodMap.set(50, 750)
+  foodMap.set(60, 850)
+  foodMap.set(70, 950)
+  foodMap.set(80, 1.125)
+  return foodMap.get(weight)
+}
