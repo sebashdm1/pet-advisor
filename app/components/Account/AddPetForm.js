@@ -9,16 +9,21 @@ import {calculateDogAge} from '../../business-rules/AgeConverter'
 const db = firebase.firestore(firebaseApp)
 
 export default function AddPetForm(props) {
-  const {toastRef} = props
+  const {toastRef, age, setAge} = props
   const [isLoading, setIsLoading] = useState(false)
   const [breed, setBreed] = useState('')
   const [name, setName] = useState('')
-  const [age, setAge] = useState('')
-  const [humanAge, setHumanAge] = useState('')
   const [weight, setWeight] = useState('')
   const [Type, setType] = useState('')
+  let resultAge
+
+  const handleAgeChange = e => {
+    e.preventDefault()
+    setAge(e.nativeEvent.text)
+  }
 
   const addPet = () => {
+    resultAge = calculateDogAge(+age, 2)
     setIsLoading(true)
     firebase
       .database()
@@ -27,7 +32,7 @@ export default function AddPetForm(props) {
         breed: breed,
         petName: name,
         petAge: age,
-        humanAge: humanAge,
+        humanAge: resultAge,
         petWeight: weight,
         createAt: new Date(),
       })
@@ -41,10 +46,6 @@ export default function AddPetForm(props) {
         toastRef.current.show('Error al registrar mascota')
       })
   }
-
-  useEffect(() => {
-    setHumanAge(calculateDogAge(age, 2))
-  }, [age])
 
   return (
     <ScrollView style={styles.scrollView}>
@@ -65,9 +66,7 @@ export default function AddPetForm(props) {
         testID="pet-age"
         label="edad mascota"
         rightIcon={<Icon type="material-community" name="counter" />}
-        onChange={e => {
-          setAge(e.nativeEvent.text)
-        }}
+        onChange={e => handleAgeChange(e)}
       />
       <Input
         testID="pet-weight"

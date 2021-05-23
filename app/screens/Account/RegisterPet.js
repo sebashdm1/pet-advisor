@@ -1,4 +1,4 @@
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import {StyleSheet, View, Image} from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import Toast from 'react-native-easy-toast'
@@ -6,6 +6,7 @@ import AddPetForm from '../../components/Account/AddPetForm'
 
 export default function RegisterPet() {
   const toastRef = useRef()
+  const [age, setAge] = useState()
 
   return (
     <KeyboardAwareScrollView>
@@ -16,7 +17,7 @@ export default function RegisterPet() {
         style={styles.logo}
       />
       <View style={styles.viewForm}>
-        <AddPetForm toastRef={toastRef} />
+        <AddPetForm toastRef={toastRef} age={age} setAge={setAge} />
       </View>
       <Toast
         testID="toast-register"
