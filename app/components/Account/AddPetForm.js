@@ -34,6 +34,7 @@ export default function AddPetForm(props) {
         petAge: age,
         humanAge: resultAge,
         petWeight: weight,
+        avatar: '',
         createAt: new Date(),
       })
       .then(() => {
