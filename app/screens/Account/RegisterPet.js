@@ -3,10 +3,12 @@ import {StyleSheet, View, Image} from 'react-native'
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
 import Toast from 'react-native-easy-toast'
 import AddPetForm from '../../components/Account/AddPetForm'
+import {useNavigation} from '@react-navigation/native'
 
 export default function RegisterPet() {
   const toastRef = useRef()
   const [age, setAge] = useState()
+  const navigation = useNavigation()
 
   return (
     <KeyboardAwareScrollView>
@@ -17,7 +19,12 @@ export default function RegisterPet() {
         style={styles.logo}
       />
       <View style={styles.viewForm}>
-        <AddPetForm toastRef={toastRef} age={age} setAge={setAge} />
+        <AddPetForm
+          toastRef={toastRef}
+          age={age}
+          setAge={setAge}
+          navigation={navigation}
+        />
       </View>
       <Toast
         testID="toast-register"

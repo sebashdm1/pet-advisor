@@ -5,11 +5,12 @@ import Loading from '../Loading'
 import {firebaseApp} from '../../utils/firebase'
 import firebase from 'firebase/app'
 import 'firebase/firestore'
-import {calculateDogAge} from '../../business-rules/AgeConverter'
+import 'firebase/storage'
 const db = firebase.firestore(firebaseApp)
+import {calculateDogAge} from '../../business-rules/AgeConverter'
 
 export default function AddPetForm(props) {
-  const {toastRef, age, setAge} = props
+  const {toastRef, age, setAge, navigation} = props
   const [isLoading, setIsLoading] = useState(false)
   const [breed, setBreed] = useState('')
   const [name, setName] = useState('')
@@ -21,14 +22,13 @@ export default function AddPetForm(props) {
     e.preventDefault()
     setAge(e.nativeEvent.text)
   }
-
   const addPet = () => {
     resultAge = calculateDogAge(+age, 2)
     setIsLoading(true)
-    firebase
-      .database()
-      .ref('pets/')
-      .set({
+    db.collection('pets')
+      .add({
+        type: '',
+        size: '',
         breed: breed,
         petName: name,
         petAge: age,
@@ -39,6 +39,7 @@ export default function AddPetForm(props) {
       .then(() => {
         console.log('ok')
         setIsLoading(false)
+        navigation.navigate('account')
       })
       .catch(error => {
         setIsLoading(false)
