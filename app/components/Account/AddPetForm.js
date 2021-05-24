@@ -7,7 +7,10 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/storage'
 const db = firebase.firestore(firebaseApp)
-import {calculateDogAge} from '../../business-rules/AgeConverter'
+import {
+  calculateDogAge,
+  calculateCatAge,
+} from '../../business-rules/AgeConverter'
 
 export default function AddPetForm(props) {
   const {toastRef, age, setAge, navigation} = props
@@ -15,7 +18,7 @@ export default function AddPetForm(props) {
   const [breed, setBreed] = useState('')
   const [name, setName] = useState('')
   const [weight, setWeight] = useState('')
-  const [Type, setType] = useState('')
+  const [type, setType] = useState('')
   let resultAge
 
   const handleAgeChange = e => {
@@ -23,11 +26,11 @@ export default function AddPetForm(props) {
     setAge(e.nativeEvent.text)
   }
   const addPet = () => {
-    resultAge = calculateDogAge(+age, 2)
+    resultAge = isDogOrCat(type, age)
     setIsLoading(true)
     db.collection('pets')
       .add({
-        type: '',
+        type: 'cat',
         size: '',
         breed: breed,
         petName: name,
@@ -85,6 +88,10 @@ export default function AddPetForm(props) {
       <Loading isVisible={isLoading} text="Guardando patitas" />
     </ScrollView>
   )
+}
+
+const isDogOrCat = (type, age) => {
+  return type === 'dog' ? calculateDogAge(+age, 2) : calculateCatAge(+age)
 }
 
 const styles = StyleSheet.create({
