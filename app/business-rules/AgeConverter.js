@@ -59,7 +59,16 @@ export function catAge(number) {
   myMap.set(9, 52)
   myMap.set(10, 56)
   myMap.set(11, 60)
-  return myMap.get(number)
+
+  try {
+    if (myMap.get(number) <= 11) {
+      return myMap.get(number)
+    } else {
+      throw new userException('input age is not parametrized')
+    }
+  } catch (e) {
+    console.log('error')
+  }
 }
 
 export function calculateDogAge(ageDog, size) {
@@ -74,5 +83,5 @@ export function calculateDogAge(ageDog, size) {
 }
 
 export function calculateCatAge(ageCat) {
-  return ageCat > 11 ? 'mas de 60' : catAge(ageCat)
+  return ageCat > 11 && ageCat <= 16 ? 'mas de 60' : catAge(ageCat)
 }

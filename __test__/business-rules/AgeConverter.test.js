@@ -2,6 +2,7 @@ import {
   smallDog,
   largeDog,
   mediumDog,
+  catAge,
   calculateDogAge,
   calculateCatAge,
 } from '../../app/business-rules/AgeConverter'
@@ -54,4 +55,13 @@ describe('Business rules test about Cat age trasnformation', () => {
     let result = calculateCatAge(12)
     expect(result).toMatch(/mas de 60/)
   })
+})
+
+test('throws user error', () => {
+  function userError() {
+    catAge(19)
+  }
+
+  expect(userError).toThrowError(/input/)
+  console.log(userError)
 })
