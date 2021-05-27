@@ -47,6 +47,10 @@ export function largeDog(number) {
 }
 
 export function catAge(number) {
+  let morthan
+  if (number >= 6) {
+    morthan = number
+  }
   var myMap = new Map()
   myMap.set(1, 15)
   myMap.set(2, 24)
@@ -59,15 +63,18 @@ export function catAge(number) {
   myMap.set(9, 52)
   myMap.set(10, 56)
   myMap.set(11, 60)
+  myMap.set(morthan, 'mas de 60')
 
   try {
-    if (myMap.get(number) <= 11) {
+    if (number <= 16) {
+      console.log('no voy a lanzar el error')
       return myMap.get(number)
     } else {
-      throw new userException('input age is not parametrized')
+      console.log('voy a lanzar el error')
+      throw new Error('submited age is not parametrized')
     }
   } catch (e) {
-    console.log('error')
+    console.error('submited age is not parametrized')
   }
 }
 
@@ -83,5 +90,12 @@ export function calculateDogAge(ageDog, size) {
 }
 
 export function calculateCatAge(ageCat) {
-  return ageCat > 11 && ageCat <= 16 ? 'mas de 60' : catAge(ageCat)
+  return catAge(ageCat)
+}
+
+export function calculateSquare(num) {
+  if (num === undefined || typeof num !== 'number') {
+    throw new Error('You must provide a number.')
+  }
+  return num * num
 }

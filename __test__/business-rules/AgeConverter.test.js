@@ -3,6 +3,7 @@ import {
   largeDog,
   mediumDog,
   catAge,
+  calculateSquare,
   calculateDogAge,
   calculateCatAge,
 } from '../../app/business-rules/AgeConverter'
@@ -51,17 +52,18 @@ describe('Business rules test about Cat age trasnformation', () => {
     let result = calculateCatAge(1)
     expect(result).toBe(15)
   })
-  test('When cat age is more than 11 year his human age should be more than 60 year ', () => {
-    let result = calculateCatAge(12)
+  test('When cat age is more than 11 years and less than 16 years his human age should be more than 60 year ', () => {
+    let result = calculateCatAge(16)
     expect(result).toMatch(/mas de 60/)
   })
 })
 
-test('throws user error', () => {
-  function userError() {
-    catAge(19)
-  }
+test('should throw an error if called without a number', () => {
+  expect(() => {
+    calculateCatAge(17)
+  }).toThrow('submited age is not parametrized')
+})
 
-  expect(userError).toThrowError(/input/)
-  console.log(userError)
+test('should throw an error if called without an arg', () => {
+  expect(catAge).toThrow('submited age is not parametrized')
 })
