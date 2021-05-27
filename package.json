@@ -11,9 +11,6 @@
   },
   "jest": {
     "preset": "jest-expo",
-    "transformIgnorePatterns": [
-      "node_modules/(?!(jest-)?react-native|react-clone-referenced-element|@react-native-community|expo(nent)?|@expo(nent)?/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base |react-native-safe-area-context|@sentry/.*|rn-pdf-reader-js)"
-    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}",
       "!src/index.js"
@@ -24,13 +21,22 @@
     },
     "setupFilesAfterEnv": [
       "@testing-library/jest-native/extend-expect"
+    ],
+    "modulePaths": [
+      "<rootDir>",
+      "/home/some/other/path"
+    ],
+    "moduleDirectories": [
+      "node_modules"
     ]
   },
   "dependencies": {
     "@react-native-community/masked-view": "0.1.10",
+    "@react-native-picker/picker": "1.9.11",
     "@react-navigation/bottom-tabs": "~5.2.6",
     "@react-navigation/native": "~5.1.5",
     "@react-navigation/stack": "~5.2.10",
+    "base-64": "~0.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16.1": "^1.6.4",
     "eslint": "^7.25.0",
