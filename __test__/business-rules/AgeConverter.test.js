@@ -58,12 +58,14 @@ describe('Business rules test about Cat age trasnformation', () => {
   })
 })
 
-test('should throw an error if called without a number', () => {
-  expect(() => {
-    calculateCatAge(17)
-  }).toThrow('submited age is not parametrized')
-})
+describe('Calculate cat age exceptions', () => {
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      calculateCatAge(17)
+    }).toThrow('submited age is not parametrized')
+  })
 
-test('should throw an error if called without an arg', () => {
-  expect(catAge).toThrow('submited age is not parametrized')
+  test('should throw an error if called without an arg', () => {
+    expect(catAge).toThrow('submited age is not parametrized')
+  })
 })
