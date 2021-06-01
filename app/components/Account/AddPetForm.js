@@ -21,71 +21,82 @@ export default function AddPetForm(props) {
   const [type, setType] = useState('')
   let resultAge
 
+  const [formErrors, setFormErrors] = useState({
+    breed: '',
+    name: '',
+    age: '',
+    weight: '',
+  })
   const handleAgeChange = e => {
     e.preventDefault()
     setAge(e.nativeEvent.text)
   }
-  const addPet = () => {
-    resultAge = isDogOrCat(type, age)
-    setIsLoading(true)
-    db.collection('pets')
-      .add({
-        type: 'cat',
-        size: '',
-        breed: breed,
-        petName: name,
-        petAge: age,
-        humanAge: resultAge,
-        petWeight: weight,
-        avatar: '',
-        createAt: new Date(),
-      })
-      .then(() => {
-        console.log('ok')
-        setIsLoading(false)
-        navigation.navigate('account')
-      })
-      .catch(error => {
-        setIsLoading(false)
-        console.log(error)
-        toastRef.current.show('Error al registrar mascota')
-      })
+
+  const handleSubmit = e => {
+    if (!breed) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        breed: 'La raza es requerida',
+      }))
+    }
+    if (!name) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        name: 'El nombre es requerida',
+      }))
+    }
+    if (!age) {
+      setFormErrors(prevState => ({...prevState, age: 'La edad es requerida'}))
+    }
+    if (!weight) {
+      setFormErrors(prevState => ({
+        ...prevState,
+        weight: 'El peso es requerida',
+      }))
+    }
   }
 
   return (
     <ScrollView style={styles.scrollView}>
       <Input
+        id="breed"
         testID="pet-breed"
         label="Raza"
+        errorMessage={formErrors.breed}
         containerStyle={styles.input}
         rightIcon={<Icon type="material-community" name="dog-side" />}
         onChange={e => setBreed(e.nativeEvent.text)}
       />
       <Input
+        id="breed"
         testID="pet-name"
         label="Nombre de la mascota"
+        errorMessage={formErrors.name}
         rightIcon={<Icon type="material-community" name="lead-pencil" />}
         onChange={e => setName(e.nativeEvent.text)}
       />
       <Input
+        id="breed"
         testID="pet-age"
         label="edad mascota"
+        errorMessage={formErrors.age}
         rightIcon={<Icon type="material-community" name="counter" />}
         onChange={e => handleAgeChange(e)}
       />
       <Input
+        id="breed"
         testID="pet-weight"
         label="peso de mascota"
+        errorMessage={formErrors.weight}
         rightIcon={<Icon type="material-community" name="weight" />}
         onChange={e => setWeight(e.nativeEvent.text)}
       />
       <Button
         testID="button"
         title="Agregar Mascota"
-        onPress={addPet}
+        onPress={handleSubmit}
         buttonStyle={styles.btnAddPet}
       />
-      <Loading isVisible={isLoading} text="Guardando patitas" />
     </ScrollView>
   )
 }

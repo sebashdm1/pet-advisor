@@ -73,6 +73,11 @@ describe('Calculate Dog age exceptions', () => {
       smallDog(18)
     }).toThrow('submited age cant be more than 16')
   })
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      smallDog(15)
+    }).not.toThrow('submited age cant be more than 16')
+  })
 
   test('should throw an error if called without an arg', () => {
     expect(largeDog).toThrow('Number cant be undefined')
