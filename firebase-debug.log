@@ -1,0 +1,145 @@
+[debug] [2021-06-01T20:33:59.864Z] ----------------------------------------------------------------------
+[debug] [2021-06-01T20:33:59.866Z] Command:       /usr/local/bin/node /usr/local/bin/firebase emulators:start
+[debug] [2021-06-01T20:33:59.867Z] CLI Version:   9.12.1
+[debug] [2021-06-01T20:33:59.867Z] Platform:      darwin
+[debug] [2021-06-01T20:33:59.867Z] Node Version:  v14.15.4
+[debug] [2021-06-01T20:33:59.868Z] Time:          Tue Jun 01 2021 15:33:59 GMT-0500 (hora estándar de Colombia)
+[debug] [2021-06-01T20:33:59.868Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-06-01T20:33:59.878Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-06-01T20:33:59.878Z] > authorizing via signed-in user (sebashdm@gmail.com)
+[info] i  emulators: Starting emulators: auth, functions, firestore, database, storage {"metadata":{"emulator":{"name":"hub"},"message":"Starting emulators: auth, functions, firestore, database, storage"}}
+[debug] [2021-06-01T20:33:59.897Z] [hub] writing locator at /var/folders/rc/xyl086s15zsb7d2033g_dbfc0000gn/T/hub-pet-advisor-94a75.json
+[warn] ⚠  functions: The following emulators are not running, calls to these services from the Functions emulator will affect production: hosting, pubsub {"metadata":{"emulator":{"name":"functions"},"message":"The following emulators are not running, calls to these services from the Functions emulator will affect production: \u001b[1mhosting, pubsub\u001b[22m"}}
+[info] ✔  functions: Using node@14 from host. {"metadata":{"emulator":{"name":"functions"},"message":"Using node@14 from host."}}
+[debug] [2021-06-01T20:33:59.982Z] defaultcredentials: writing to file /Users/sebastian.hernandez/.config/firebase/sebashdm_gmail_com_application_default_credentials.json
+[debug] [2021-06-01T20:33:59.985Z] Setting GAC to /Users/sebastian.hernandez/.config/firebase/sebashdm_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"functions"},"message":"Setting GAC to /Users/sebastian.hernandez/.config/firebase/sebashdm_gmail_com_application_default_credentials.json"}}
+[debug] [2021-06-01T20:33:59.987Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75/adminSdkConfig [none]
+[debug] [2021-06-01T20:34:00.273Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75/adminSdkConfig 200
+[debug] [2021-06-01T20:34:00.274Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75/adminSdkConfig {"projectId":"pet-advisor-94a75","databaseURL":"https://pet-advisor-94a75-default-rtdb.firebaseio.com","storageBucket":"pet-advisor-94a75.appspot.com","locationId":"southamerica-east1"}
+[debug] [2021-06-01T20:34:00.311Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-06-01T20:34:00.311Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"firestore"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-01T20:34:00.311Z] Starting Firestore Emulator with command {"binary":"java","args":["-Dgoogle.cloud_firestore.debug_log_level=FINE","-Duser.language=en","-jar","/Users/sebastian.hernandez/.cache/firebase/emulators/cloud-firestore-emulator-v1.12.0.jar","--host","localhost","--port",8080,"--rules","/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/firestore.rules","--functions_emulator","localhost:5001"],"optionalArgs":["port","webchannel_port","host","rules","functions_emulator","seed_from_export"],"joinArgs":false} {"metadata":{"emulator":{"name":"firestore"},"message":"Starting Firestore Emulator with command {\"binary\":\"java\",\"args\":[\"-Dgoogle.cloud_firestore.debug_log_level=FINE\",\"-Duser.language=en\",\"-jar\",\"/Users/sebastian.hernandez/.cache/firebase/emulators/cloud-firestore-emulator-v1.12.0.jar\",\"--host\",\"localhost\",\"--port\",8080,\"--rules\",\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/firestore.rules\",\"--functions_emulator\",\"localhost:5001\"],\"optionalArgs\":[\"port\",\"webchannel_port\",\"host\",\"rules\",\"functions_emulator\",\"seed_from_export\"],\"joinArgs\":false}"}}
+[info] i  firestore: Firestore Emulator logging to firestore-debug.log {"metadata":{"emulator":{"name":"firestore"},"message":"Firestore Emulator logging to \u001b[1mfirestore-debug.log\u001b[22m"}}
+[debug] [2021-06-01T20:34:01.330Z] Jun 01, 2021 3:34:01 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start
+INFO: Started WebSocket server on ws://localhost:60990
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 3:34:01 PM com.google.cloud.datastore.emulator.firestore.websocket.WebSocketServer start\nINFO: Started WebSocket server on ws://localhost:60990\n"}}
+[debug] [2021-06-01T20:34:01.353Z] API endpoint: http://localhost:8080 {"metadata":{"emulator":{"name":"firestore"},"message":"API endpoint: http://localhost:8080"}}
+[debug] [2021-06-01T20:34:01.354Z] 
+If you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:
+
+   export FIRESTORE_EMULATOR_HOST=localhost:8080
+
+Dev App Server is now running.
+
+ {"metadata":{"emulator":{"name":"firestore"},"message":"\nIf you are using a library that supports the FIRESTORE_EMULATOR_HOST environment variable, run:\n\n   export FIRESTORE_EMULATOR_HOST=localhost:8080\n\nDev App Server is now running.\n\n"}}
+[debug] [2021-06-01T20:34:01.592Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75 [none]
+[debug] [2021-06-01T20:34:01.940Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75 200
+[debug] [2021-06-01T20:34:01.940Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/pet-advisor-94a75 {"projectId":"pet-advisor-94a75","projectNumber":"1068611541728","displayName":"Pet Advisor","name":"projects/pet-advisor-94a75","resources":{"hostingSite":"pet-advisor-94a75","realtimeDatabaseInstance":"pet-advisor-94a75-default-rtdb","storageBucket":"pet-advisor-94a75.appspot.com","locationId":"southamerica-east1"},"state":"ACTIVE"}
+[debug] [2021-06-01T20:34:01.941Z] database rules config:  [{"instance":"pet-advisor-94a75-default-rtdb","rules":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/database.rules.json"}]
+[debug] [2021-06-01T20:34:01.945Z] Ignoring unsupported arg: projectId {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: projectId"}}
+[debug] [2021-06-01T20:34:01.945Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-01T20:34:01.945Z] Ignoring unsupported arg: rules {"metadata":{"emulator":{"name":"database"},"message":"Ignoring unsupported arg: rules"}}
+[debug] [2021-06-01T20:34:01.945Z] Starting Database Emulator with command {"binary":"java","args":["-Duser.language=en","-jar","/Users/sebastian.hernandez/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar","--host","localhost","--port",9000,"--functions_emulator_host","localhost","--functions_emulator_port",5001],"optionalArgs":["port","host","functions_emulator_port","functions_emulator_host"],"joinArgs":false} {"metadata":{"emulator":{"name":"database"},"message":"Starting Database Emulator with command {\"binary\":\"java\",\"args\":[\"-Duser.language=en\",\"-jar\",\"/Users/sebastian.hernandez/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar\",\"--host\",\"localhost\",\"--port\",9000,\"--functions_emulator_host\",\"localhost\",\"--functions_emulator_port\",5001],\"optionalArgs\":[\"port\",\"host\",\"functions_emulator_port\",\"functions_emulator_host\"],\"joinArgs\":false}"}}
+[info] i  database: Database Emulator logging to database-debug.log {"metadata":{"emulator":{"name":"database"},"message":"Database Emulator logging to \u001b[1mdatabase-debug.log\u001b[22m"}}
+[debug] [2021-06-01T20:34:02.502Z] WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/sebastian.hernandez/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar) to field sun.nio.ch.SelectorImpl.selectedKeys
+WARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+ {"metadata":{"emulator":{"name":"database"},"message":"WARNING: An illegal reflective access operation has occurred\nWARNING: Illegal reflective access by io.netty.util.internal.ReflectionUtil (file:/Users/sebastian.hernandez/.cache/firebase/emulators/firebase-database-emulator-v4.7.2.jar) to field sun.nio.ch.SelectorImpl.selectedKeys\nWARNING: Please consider reporting this to the maintainers of io.netty.util.internal.ReflectionUtil\nWARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations\nWARNING: All illegal access operations will be denied in a future release\n"}}
+[debug] [2021-06-01T20:34:03.212Z] 15:34:03.211 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started
+ {"metadata":{"emulator":{"name":"database"},"message":"15:34:03.211 [NamespaceSystem-akka.actor.default-dispatcher-5] INFO akka.event.slf4j.Slf4jLogger - Slf4jLogger started\n"}}
+[debug] [2021-06-01T20:34:03.376Z] 15:34:03.376 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000
+ {"metadata":{"emulator":{"name":"database"},"message":"15:34:03.376 [main] INFO com.firebase.server.forge.App$ - Listening at localhost:9000\n"}}
+[debug] [2021-06-01T20:34:05.744Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"storage"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-06-01T20:34:05.928Z] Temp file directory for storage emulator: /var/folders/rc/xyl086s15zsb7d2033g_dbfc0000gn/T/firebase/storage/blobs {"metadata":{"emulator":{"name":"storage"},"message":"Temp file directory for storage emulator: /var/folders/rc/xyl086s15zsb7d2033g_dbfc0000gn/T/firebase/storage/blobs"}}
+[debug] [2021-06-01T20:34:06.766Z] Ignoring unsupported arg: auto_download {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: auto_download"}}
+[debug] [2021-06-01T20:34:06.767Z] Ignoring unsupported arg: port {"metadata":{"emulator":{"name":"ui"},"message":"Ignoring unsupported arg: port"}}
+[debug] [2021-06-01T20:34:06.767Z] Starting Emulator UI with command {"binary":"node","args":["/Users/sebastian.hernandez/.cache/firebase/emulators/ui-v1.5.0/server.bundle.js"],"optionalArgs":[],"joinArgs":false} {"metadata":{"emulator":{"name":"ui"},"message":"Starting Emulator UI with command {\"binary\":\"node\",\"args\":[\"/Users/sebastian.hernandez/.cache/firebase/emulators/ui-v1.5.0/server.bundle.js\"],\"optionalArgs\":[],\"joinArgs\":false}"}}
+[info] i  ui: Emulator UI logging to ui-debug.log {"metadata":{"emulator":{"name":"ui"},"message":"Emulator UI logging to \u001b[1mui-debug.log\u001b[22m"}}
+[debug] [2021-06-01T20:34:06.865Z] Web / API server started at http://localhost:4000
+ {"metadata":{"emulator":{"name":"ui"},"message":"Web / API server started at http://localhost:4000\n"}}
+[info] i  functions: Watching "/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions" for Cloud Functions... {"metadata":{"emulator":{"name":"functions"},"message":"Watching \"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions\" for Cloud Functions..."}}
+[debug] [2021-06-01T20:34:07.056Z] [worker-pool] addWorker(~diagnostic~) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] addWorker(~diagnostic~)"}}
+[debug] [2021-06-01T20:34:07.057Z] [worker-pool] Adding worker with key ~diagnostic~, total=1 {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] Adding worker with key ~diagnostic~, total=1"}}
+[debug] [2021-06-01T20:34:07.057Z] [worker-pool] submitWork(triggerId=) {"metadata":{"emulator":{"name":"functions"},"message":"[worker-pool] submitWork(triggerId=)"}}
+[debug] [2021-06-01T20:34:07.057Z] [worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: Assigning socketPath: /var/folders/rc/xyl086s15zsb7d2033g_dbfc0000gn/T/fire_emu_6080.sock {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: Assigning socketPath: /var/folders/rc/xyl086s15zsb7d2033g_dbfc0000gn/T/fire_emu_6080.sock"}}
+[debug] [2021-06-01T20:34:07.058Z] [worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: BUSY {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: BUSY"}}
+[debug] [2021-06-01T20:34:07.333Z] [runtime-status] [6080] Functions runtime initialized. {"cwd":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions","node_version":"14.15.4"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Functions runtime initialized. {\"cwd\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions\",\"node_version\":\"14.15.4\"}"}}
+[debug] [2021-06-01T20:34:07.334Z] [runtime-status] [6080] Disabled runtime features: undefined {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Disabled runtime features: undefined"}}
+[debug] [2021-06-01T20:34:07.338Z] [runtime-status] [6080] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.341Z] [runtime-status] [6080] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.343Z] [runtime-status] [6080] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.345Z] [runtime-status] [6080] Outgoing network have been stubbed. [{"name":"http","status":"mocked"},{"name":"http","status":"mocked"},{"name":"https","status":"mocked"},{"name":"https","status":"mocked"},{"name":"net","status":"mocked"}] {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Outgoing network have been stubbed. [{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"http\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"https\",\"status\":\"mocked\"},{\"name\":\"net\",\"status\":\"mocked\"}]"}}
+[debug] [2021-06-01T20:34:07.346Z] [runtime-status] [6080] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.422Z] [runtime-status] [6080] Checked functions.config() {"config":{}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Checked functions.config() {\"config\":{}}"}}
+[debug] [2021-06-01T20:34:07.423Z] [runtime-status] [6080] firebase-functions has been stubbed. {"functionsResolution":{"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] firebase-functions has been stubbed. {\"functionsResolution\":{\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}}"}}
+[debug] [2021-06-01T20:34:07.423Z] [runtime-status] [6080] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.425Z] [runtime-status] [6080] Resolved module firebase-admin {"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-admin {\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.425Z] [runtime-status] [6080] Resolved module firebase-functions {"declared":true,"installed":true,"version":"3.14.1","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js"} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] Resolved module firebase-functions {\"declared\":true,\"installed\":true,\"version\":\"3.14.1\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-functions/lib/index.js\"}"}}
+[debug] [2021-06-01T20:34:07.426Z] [runtime-status] [6080] firebase-admin has been stubbed. {"adminResolution":{"declared":true,"installed":true,"version":"9.9.0","resolution":"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js"}} {"metadata":{"emulator":{"name":"functions"},"message":"[runtime-status] [6080] firebase-admin has been stubbed. {\"adminResolution\":{\"declared\":true,\"installed\":true,\"version\":\"9.9.0\",\"resolution\":\"/Users/sebastian.hernandez/Desktop/React-Native/Pet-Advisor/pet-advisor/functions/node_modules/firebase-admin/lib/index.js\"}}"}}
+[debug] [2021-06-01T20:34:07.432Z] >>> HTTP REQUEST PUT http://localhost:9000/.settings/rules.json?ns=pet-advisor-94a75-default-rtdb  
+ {
+  "rules": {
+    ".read": true,
+    ".write": true
+  }
+}
+
+[debug] [2021-06-01T20:34:07.435Z] [worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: IDLE {"metadata":{"emulator":{"name":"functions"},"message":"[worker-~diagnostic~-7d04c94c-dfb2-451a-80e7-d75764aae54d]: IDLE"}}
+[debug] [2021-06-01T20:34:07.768Z] <<< HTTP RESPONSE 200 {"content-length":"15","content-type":"application/json; charset=utf-8","access-control-allow-origin":"*","cache-control":"no-cache","x-firebase-project-id":"pet-advisor-94a75-default-rtdb","x-firebase-project-number":"123456789","x-firebase-uuid":"e2e33b6e-6e72-4ec8-9e26-2b68192b3144"}
+[info] 
+┌─────────────────────────────────────────────────────────────┐
+│ ✔  All emulators ready! It is now safe to connect your app. │
+│ i  View Emulator UI at http://localhost:4000                │
+└─────────────────────────────────────────────────────────────┘
+
+┌────────────────┬────────────────┬─────────────────────────────────┐
+│ Emulator       │ Host:Port      │ View in Emulator UI             │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Authentication │ localhost:9099 │ http://localhost:4000/auth      │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Functions      │ localhost:5001 │ http://localhost:4000/functions │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Firestore      │ localhost:8080 │ http://localhost:4000/firestore │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Database       │ localhost:9000 │ http://localhost:4000/database  │
+├────────────────┼────────────────┼─────────────────────────────────┤
+│ Storage        │ localhost:9199 │ http://localhost:4000/storage   │
+└────────────────┴────────────────┴─────────────────────────────────┘
+  Emulator Hub running at localhost:4400
+  Other reserved ports: 4500
+
+Issues? Report them at https://github.com/firebase/firebase-tools/issues and attach the *-debug.log files.
+ 
+[debug] [2021-06-01T20:44:09.684Z] Jun 01, 2021 3:44:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 3:44:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T20:44:09.881Z] Jun 01, 2021 3:44:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 3:44:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:01:34.530Z] Jun 01, 2021 4:01:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:01:34 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:01:40.626Z] Jun 01, 2021 4:01:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:01:40 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:03:09.921Z] Jun 01, 2021 4:03:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:03:09 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:06:02.095Z] Jun 01, 2021 4:06:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:06:02 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:07:20.147Z] Jun 01, 2021 4:07:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:07:20 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:09:03.039Z] Jun 01, 2021 4:09:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:09:03 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:12:06.005Z] Jun 01, 2021 4:12:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:12:06 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}
+[debug] [2021-06-01T21:13:08.780Z] Jun 01, 2021 4:13:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead
+INFO: Detected non-HTTP/2 connection.
+ {"metadata":{"emulator":{"name":"firestore"},"message":"Jun 01, 2021 4:13:08 PM io.gapi.emulators.netty.HttpVersionRoutingHandler channelRead\nINFO: Detected non-HTTP/2 connection.\n"}}

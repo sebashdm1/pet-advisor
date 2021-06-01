@@ -18,6 +18,7 @@ export default function AddPetForm(props) {
   const [breed, setBreed] = useState('')
   const [name, setName] = useState('')
   const [weight, setWeight] = useState('')
+  const [isSaving, setIsSaving] = useState(false)
   const [type, setType] = useState('')
   let resultAge
 
@@ -27,12 +28,8 @@ export default function AddPetForm(props) {
     age: '',
     weight: '',
   })
-  const handleAgeChange = e => {
-    e.preventDefault()
-    setAge(e.nativeEvent.text)
-  }
 
-  const handleSubmit = e => {
+  const validateForm = () => {
     if (!breed) {
       setFormErrors(prevState => ({
         ...prevState,
@@ -54,6 +51,18 @@ export default function AddPetForm(props) {
         weight: 'El peso es requerida',
       }))
     }
+  }
+
+  const handleAgeChange = e => {
+    e.preventDefault()
+    setAge(e.nativeEvent.text)
+  }
+
+  const handleSubmit = async e => {
+    setIsSaving(true)
+    validateForm()
+
+    setIsSaving(false)
   }
 
   return (
@@ -92,6 +101,7 @@ export default function AddPetForm(props) {
         onChange={e => setWeight(e.nativeEvent.text)}
       />
       <Button
+        disabled={isSaving}
         testID="button"
         title="Agregar Mascota"
         onPress={handleSubmit}
