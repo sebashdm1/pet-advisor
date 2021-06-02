@@ -1,8 +1,10 @@
+require("firebase-functions-test")();
 import React from 'react'
-import {fireEvent, render, waitFor} from '@testing-library/react-native'
+import {fireEvent, render,} from '@testing-library/react-native'
 import AddPetForm from '../../../app/components/Account/AddPetForm'
 import MockedNavigation from '../../../__mocks__/MockedNavigator'
 const firebase = require('@firebase/testing')
+const assert = require("assert");
 const admin = require('firebase-admin')
 
 const projectId = 'pet-advisor-94a75'
@@ -36,37 +38,36 @@ describe('add new pet form tests', () => {
 describe('when the user sumits the form without values', () => {
   beforeEach(() => {
     component = render(<MockedNavigation component={AddPetForm} />)
-    button = component.getByText('Agregar Mascota')
+    button = component.getByTestId('button')
   })
-  it('should display validation messages ', async () => {
-    expect(component.queryByText(/La raza es requerida/i)).toBeNull()
-    expect(component.queryByText(/El nombre es requerido/i)).toBeNull()
-    expect(component.queryByText(/La edad es requerida/i)).toBeNull()
-    expect(component.queryByText(/El peso es requerido/i)).toBeNull()
-
+  it('should display validation messages ', () => {
     fireEvent.press(button)
-    expect(component.queryByText(/La raza es requerida/i)).toBeDefined()
-    expect(component.queryByText(/El nombre es requerido/i)).toBeDefined()
-    expect(component.queryByText(/La edad es requerida/i)).toBeDefined()
-    expect(component.queryByText(/El peso es requerido/i)).toBeDefined()
+    expect(component.getByText(/La raza es requerida/i)).toBeDefined()
+    expect(component.getByText(/El peso es requerido/i)).toBeDefined()
+    expect(component.getByText(/La edad es requerida/i)).toBeDefined()
+    expect(component.getByText(/El peso es requerido/i)).toBeDefined()
   })
 })
 
 describe('when the user submits the form', () => {
   beforeAll(async () => {
+    this.timeout(0);
     await firebase.clearFirestoreData({projectId})
   })
 
   beforeEach(() => {
     component = render(<MockedNavigation component={AddPetForm} />)
-    button = component.getByText('Agregar Mascota')
+    button = component.getByTestId('button')
+    component.
   })
 
-  it('submit button should be disabled until the request is done', async () => {
-    expect(button).not.toBeDisabled()
-    fireEvent.press(button)
-    expect(button).toBeDisabled()
-
-    await waitFor(() => expect(button).not.toBeDisabled())
+  it('screen must display a succes message ', async () => {
+    fireEvent.changeText(component.getByTestId('pet-breed'), 'kira')
   })
+
+  //it('submit button should be disabled until the request is done', () => {
+  // expect(button).not.toBeDisabled()
+  //fireEvent.press(button)
+  //expect(button).toBeDisabled()
+  //})
 })

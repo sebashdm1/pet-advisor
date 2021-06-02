@@ -46,6 +46,8 @@
     "expo-status-bar": "~1.0.4",
     "firebase": "~8.2.3",
     "firebase-admin": "^9.9.0",
+    "firebase-functions-test": "^0.2.3",
+    "firestore-jest-mock": "^0.13.0",
     "jest-enzyme": "^7.1.2",
     "lodash": "^4.17.21",
     "react": "16.13.1",
