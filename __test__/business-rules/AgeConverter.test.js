@@ -52,7 +52,7 @@ describe('Business rules test about Cat age trasnformation', () => {
     expect(result).toBe(15)
   })
   test('When cat age is more than 11 years and less than 16 years his human age should be more than 60 year ', () => {
-    let result = calculateCatAge(16)
+    let result = calculateCatAge(15)
     expect(result).toMatch(/mas de 60/)
   })
 })
@@ -94,10 +94,10 @@ describe('Calculate cat age exceptions', () => {
   test('should throw an error if called with a number > 16', () => {
     expect(() => {
       calculateCatAge(17)
-    }).toThrow('Number cant be undefined')
+    }).toThrow('Number cant be more than 16 or undefined')
   })
 
   test('should throw an error if called without an arg', () => {
-    expect(catAge).toThrow('Number cant be undefined')
+    expect(catAge).toThrow('Number cant be more than 16 or undefined')
   })
 })

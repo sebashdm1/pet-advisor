@@ -51,26 +51,31 @@ export default function AddPetForm(props) {
     return isValid
   }
 
-  const handleSubmit = async () => {
+  const handleSubmit = () => {
     if (!validateData()) {
       return
     }
+    resultAge = isDogOrCat(formData.type, formData.age)
     setIsLoading(true)
     const pet = {
+      type: 'cat',
       breed: formData.breed,
       name: formData.name,
       age: formData.age,
+      humanAge: resultAge,
       weight: formData.weight,
       createAt: new Date(),
     }
-    const responseAdd = await addDocument('pets', pet)
-    setIsLoading(false)
-
-    if (!responseAdd.statusResponse) {
-      toastRef.current.show('Error al registrar mascota', 3000)
-      return
-    }
-    navigation.navigate('account')
+    console.log(pet)
+    addDocument('pets', pet)
+      .then(() => {
+        setIsLoading(false)
+        navigation.navigate('account')
+      })
+      .catch(() => {
+        setIsLoading(false)
+        toastRef.current.show('Error al registrar mascota', 300)
+      })
   }
 
   return (

@@ -64,7 +64,7 @@ export function largeDog(number) {
 
 export function catAge(number) {
   let morthan
-  if (number >= 6) {
+  if (number <= 16 && number > 11) {
     morthan = number
   }
   var myMap = new Map()
@@ -81,8 +81,8 @@ export function catAge(number) {
   myMap.set(11, 60)
   myMap.set(morthan, 'mas de 60')
 
-  if (number >= 16 || number === undefined) {
-    throw new Error('Number cant be undefined')
+  if (number > 16 || number === undefined) {
+    throw new Error('Number cant be more than 16 or undefined')
   }
   return myMap.get(number)
 }
