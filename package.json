@@ -31,11 +31,14 @@
     ]
   },
   "dependencies": {
+    "@firebase/testing": "^0.20.11",
     "@react-native-community/masked-view": "0.1.10",
     "@react-native-picker/picker": "1.9.11",
     "@react-navigation/bottom-tabs": "~5.2.6",
     "@react-navigation/native": "~5.1.5",
     "@react-navigation/stack": "~5.2.10",
+    "@testing-library/user-event": "^13.1.9",
+    "@types/jest": "^26.0.23",
     "base-64": "~0.1.0",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16.1": "^1.6.4",
@@ -43,6 +46,9 @@
     "expo": "~41.0.1",
     "expo-status-bar": "~1.0.4",
     "firebase": "~8.2.3",
+    "firebase-admin": "^9.9.0",
+    "firebase-functions-test": "^0.2.3",
+    "firestore-jest-mock": "^0.13.0",
     "jest-enzyme": "^7.1.2",
     "lodash": "^4.17.21",
     "react": "16.13.1",
@@ -73,6 +79,7 @@
     "eslint-plugin-react": "^7.23.2",
     "jest": "^26.6.3",
     "jest-expo": "^39.0.0",
+    "msw": "^0.29.0",
     "prettier": "^2.2.1",
     "react-test-renderer": "^16.13.1"
   },

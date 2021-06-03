@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
-import {StyleSheet, ScrollView, Alert, Dimensions} from 'react-native'
+import {StyleSheet, ScrollView} from 'react-native'
+import {addDocument} from '../../services/service'
 import {Input, Icon, Button} from 'react-native-elements'
 import Loading from '../Loading'
 import {firebaseApp} from '../../utils/firebase'
@@ -7,87 +8,139 @@ import firebase from 'firebase/app'
 import 'firebase/firestore'
 import 'firebase/storage'
 const db = firebase.firestore(firebaseApp)
+
 import {
   calculateDogAge,
   calculateCatAge,
 } from '../../business-rules/AgeConverter'
 
 export default function AddPetForm(props) {
-  const {toastRef, age, setAge, navigation} = props
+  const {toastRef, navigation} = props
   const [isLoading, setIsLoading] = useState(false)
-  const [breed, setBreed] = useState('')
-  const [name, setName] = useState('')
-  const [weight, setWeight] = useState('')
-  const [type, setType] = useState('')
-  let resultAge
+  const [isSaving, setIsSaving] = useState(false)
+  const [formData, setFormData] = useState(defaultFormValues())
+  const [errorBreed, setErrorBreed] = useState(null)
+  const [errorName, setErrorName] = useState(null)
+  const [errorAge, setErrorAge] = useState(null)
+  const [errorWeigth, setErrorWeight] = useState(null)
 
-  const handleAgeChange = e => {
-    e.preventDefault()
-    setAge(e.nativeEvent.text)
+  const handleChange = (e, type) => {
+    setFormData({...formData, [type]: e.nativeEvent.text})
   }
-  const addPet = () => {
-    resultAge = isDogOrCat(type, age)
+
+  const validateData = () => {
+    clearErros()
+    let isValid = true
+    if (formData.breed == '') {
+      setErrorBreed('La raza es requerida')
+      isValid = false
+    }
+    if (formData.name == '') {
+      setErrorName('El nombre es requerido')
+      isValid = false
+    }
+    if (formData.age == '') {
+      setErrorAge('La edad es requerida')
+      isValid = false
+    }
+    if (formData.weight == '') {
+      setErrorWeight('El peso es requerido')
+      isValid = false
+    }
+    if (formData.age > 16) {
+      setErrorAge('No puede ser mayor a 16')
+      isValid = false
+    }
+    return isValid
+  }
+
+  const clearErros = () => {
+    setErrorBreed('')
+    setErrorName('')
+    setErrorAge('')
+    setErrorWeight('')
+  }
+
+  const pet = {
+    type: 'cat',
+    breed: formData.breed,
+    petName: formData.name,
+    petAge: formData.age,
+    humanAge: isDogOrCat(formData.type, formData.age),
+    petWeight: formData.weight,
+    createAt: new Date(),
+  }
+
+  const handleSubmit = () => {
+    if (!validateData()) {
+      return
+    }
     setIsLoading(true)
-    db.collection('pets')
-      .add({
-        type: 'cat',
-        size: '',
-        breed: breed,
-        petName: name,
-        petAge: age,
-        humanAge: resultAge,
-        petWeight: weight,
-        avatar: '',
-        createAt: new Date(),
-      })
+    setIsSaving(true)
+    addDocument('pets', pet, db)
       .then(() => {
-        console.log('ok')
         setIsLoading(false)
         navigation.navigate('account')
       })
-      .catch(error => {
+      .catch(() => {
         setIsLoading(false)
-        console.log(error)
-        toastRef.current.show('Error al registrar mascota')
+        toastRef.current.show('Error al registrar mascota', 300)
       })
   }
 
   return (
     <ScrollView style={styles.scrollView}>
       <Input
+        id="breed"
         testID="pet-breed"
         label="Raza"
+        errorMessage={errorBreed}
+        defaultValue={formData.breed}
         containerStyle={styles.input}
         rightIcon={<Icon type="material-community" name="dog-side" />}
-        onChange={e => setBreed(e.nativeEvent.text)}
+        onChange={e => handleChange(e, 'breed')}
       />
       <Input
+        id="name"
         testID="pet-name"
+        label="Raza"
+        errorMessage={errorName}
         label="Nombre de la mascota"
         rightIcon={<Icon type="material-community" name="lead-pencil" />}
-        onChange={e => setName(e.nativeEvent.text)}
+        onChange={e => handleChange(e, 'name')}
       />
       <Input
+        id="age"
         testID="pet-age"
+        label="Raza"
+        errorMessage={errorAge}
         label="edad mascota"
         rightIcon={<Icon type="material-community" name="counter" />}
-        onChange={e => handleAgeChange(e)}
+        onChange={e => handleChange(e, 'age')}
       />
       <Input
+        id="weight"
         testID="pet-weight"
+        label="Raza"
+        errorMessage={errorWeigth}
         label="peso de mascota"
         rightIcon={<Icon type="material-community" name="weight" />}
-        onChange={e => setWeight(e.nativeEvent.text)}
+        onChange={e => handleChange(e, 'weight')}
       />
       <Button
+        disabled={isSaving}
         testID="button"
         title="Agregar Mascota"
-        onPress={addPet}
+        onPress={handleSubmit}
         buttonStyle={styles.btnAddPet}
       />
       <Loading isVisible={isLoading} text="Guardando patitas" />
     </ScrollView>
   )
+}
+
+const defaultFormValues = () => {
+  return {breed: '', name: '', age: '', weight: ''}
 }
 
 const isDogOrCat = (type, age) => {

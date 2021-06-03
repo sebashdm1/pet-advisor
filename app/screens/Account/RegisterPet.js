@@ -7,7 +7,6 @@ import {useNavigation} from '@react-navigation/native'
 
 export default function RegisterPet() {
   const toastRef = useRef()
-  const [age, setAge] = useState()
   const navigation = useNavigation()
 
   return (
@@ -19,12 +18,7 @@ export default function RegisterPet() {
         style={styles.logo}
       />
       <View style={styles.viewForm}>
-        <AddPetForm
-          toastRef={toastRef}
-          age={age}
-          setAge={setAge}
-          navigation={navigation}
-        />
+        <AddPetForm toastRef={toastRef} navigation={navigation} />
       </View>
       <Toast
         testID="toast-register"

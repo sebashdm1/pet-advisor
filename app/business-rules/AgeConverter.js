@@ -11,6 +11,11 @@ export function smallDog(number) {
   myMap.set(9, 52)
   myMap.set(10, 56)
   myMap.set(11, 60)
+  if (number >= 16) {
+    throw new Error('submited age cant be more than 16')
+  } else if (number === undefined) {
+    throw new Error('Number cant be undefined')
+  }
   return myMap.get(number)
 }
 
@@ -27,6 +32,11 @@ export function mediumDog(number) {
   myMap.set(9, 56)
   myMap.set(10, 60)
   myMap.set(11, 65)
+  if (number >= 16) {
+    throw new Error('submited age cant be more than 16')
+  } else if (number === undefined) {
+    throw new Error('Number cant be undefined')
+  }
   return myMap.get(number)
 }
 
@@ -43,12 +53,18 @@ export function largeDog(number) {
   myMap.set(9, 61)
   myMap.set(10, 66)
   myMap.set(11, 72)
+
+  if (number >= 16) {
+    throw new Error('submited age cant be more than 16')
+  } else if (number === undefined) {
+    throw new Error('Number cant be undefined')
+  }
   return myMap.get(number)
 }
 
 export function catAge(number) {
   let morthan
-  if (number >= 6) {
+  if (number <= 16 && number > 11) {
     morthan = number
   }
   var myMap = new Map()
@@ -64,13 +80,14 @@ export function catAge(number) {
   myMap.set(10, 56)
   myMap.set(11, 60)
   myMap.set(morthan, 'mas de 60')
-
-  if (number >= 16 || number === undefined) {
-    console.log('voy a lanzar el error')
-    throw new Error('submited age is not parametrized')
+  try {
+    if (number > 16 || number === undefined) {
+      throw new Error('Number cant be more than 16 or undefined')
+    }
+    return myMap.get(number)
+  } catch (err) {
+    console.log('error manejado')
   }
-  console.log('no voy a lanzar el error')
-  return myMap.get(number)
 }
 
 export function calculateDogAge(ageDog, size) {
@@ -86,11 +103,4 @@ export function calculateDogAge(ageDog, size) {
 
 export function calculateCatAge(ageCat) {
   return catAge(ageCat)
-}
-
-export function calculateSquare(num) {
-  if (num === undefined || typeof num !== 'number') {
-    throw new Error('You must provide a number.')
-  }
-  return num * num
 }

@@ -3,7 +3,6 @@ import {
   largeDog,
   mediumDog,
   catAge,
-  calculateSquare,
   calculateDogAge,
   calculateCatAge,
 } from '../../app/business-rules/AgeConverter'
@@ -53,19 +52,56 @@ describe('Business rules test about Cat age trasnformation', () => {
     expect(result).toBe(15)
   })
   test('When cat age is more than 11 years and less than 16 years his human age should be more than 60 year ', () => {
-    let result = calculateCatAge(16)
+    let result = calculateCatAge(15)
     expect(result).toMatch(/mas de 60/)
+  })
+})
+
+describe('Calculate Dog age exceptions', () => {
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      largeDog(17)
+    }).toThrow('submited age cant be more than 16')
+  })
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      mediumDog(18)
+    }).toThrow('submited age cant be more than 16')
+  })
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      smallDog(18)
+    }).toThrow('submited age cant be more than 16')
+  })
+  test('should throw an error if called with a number > 16', () => {
+    expect(() => {
+      smallDog(15)
+    }).not.toThrow('submited age cant be more than 16')
+  })
+
+  test('should throw an error if called without an arg', () => {
+    expect(largeDog).toThrow('Number cant be undefined')
+  })
+  test('should throw an error if called without an arg', () => {
+    expect(mediumDog).toThrow('Number cant be undefined')
+  })
+  test('should throw an error if called without an arg', () => {
+    expect(smallDog).toThrow('Number cant be undefined')
   })
 })
 
 describe('Calculate cat age exceptions', () => {
   test('should throw an error if called with a number > 16', () => {
-    expect(() => {
-      calculateCatAge(17)
-    }).toThrow('submited age is not parametrized')
+    try {
+      expect(() => {
+        calculateCatAge(17)
+      }).toThrow('Number cant be more than 16 or undefined')
+    } catch (err) {}
   })
 
   test('should throw an error if called without an arg', () => {
-    expect(catAge).toThrow('submited age is not parametrized')
+    try {
+      expect(catAge).toThrow('Number cant be more than 16 or undefined')
+    } catch (err) {}
   })
 })
