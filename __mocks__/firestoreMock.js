@@ -1,20 +1,16 @@
 export default class FirestoreMock {
   constructor() {
-    // mocked methods that return the class
     this.mockCollection = jest.fn(() => this)
     this.mockWhere = jest.fn(() => this)
     this.mockOrderBy = jest.fn(() => this)
 
-    // methods that return promises
     this.mockAdd = jest.fn(() => Promise.resolve(this._mockAddReturn))
     this.mockGet = jest.fn(() => Promise.resolve(this._mockGetReturn))
 
-    // methods that accepts callbacks
     this.mockOnSnaptshot = jest.fn((success, error) =>
       success(this._mockOnSnaptshotSuccess),
     )
 
-    // return values
     this._mockAddReturn = null
     this._mockGetReturn = null
     this._mockOnSnaptshotSuccess = null
@@ -57,12 +53,10 @@ export default class FirestoreMock {
   }
 
   reset() {
-    // reset all the mocked returns
     this._mockAddReturn = null
     this._mockGetReturn = null
     this._mockOnSnaptshotSuccess = null
 
-    // reset all the mocked functions
     this.mockCollection.mockClear()
     this.mockWhere.mockClear()
     this.mockOrderBy.mockClear()

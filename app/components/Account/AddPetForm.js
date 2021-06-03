@@ -3,6 +3,12 @@ import {StyleSheet, ScrollView, Alert, Dimensions} from 'react-native'
 import {addDocument} from '../../services/service'
 import {Input, Icon, Button} from 'react-native-elements'
 import Loading from '../Loading'
+import {firebaseApp} from '../../utils/firebase'
+import firebase from 'firebase/app'
+import 'firebase/firestore'
+import 'firebase/storage'
+const db = firebase.firestore(firebaseApp)
+
 import {
   calculateDogAge,
   calculateCatAge,
@@ -60,14 +66,14 @@ export default function AddPetForm(props) {
     const pet = {
       type: 'cat',
       breed: formData.breed,
-      name: formData.name,
-      age: formData.age,
+      petName: formData.name,
+      petAge: formData.age,
       humanAge: resultAge,
-      weight: formData.weight,
+      petWeight: formData.weight,
       createAt: new Date(),
     }
     console.log(pet)
-    addDocument('pets', pet)
+    addDocument('pets', pet, db)
       .then(() => {
         setIsLoading(false)
         navigation.navigate('account')
