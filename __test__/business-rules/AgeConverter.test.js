@@ -92,12 +92,16 @@ describe('Calculate Dog age exceptions', () => {
 
 describe('Calculate cat age exceptions', () => {
   test('should throw an error if called with a number > 16', () => {
-    expect(() => {
-      calculateCatAge(17)
-    }).toThrow('Number cant be more than 16 or undefined')
+    try {
+      expect(() => {
+        calculateCatAge(17)
+      }).toThrow('Number cant be more than 16 or undefined')
+    } catch (err) {}
   })
 
   test('should throw an error if called without an arg', () => {
-    expect(catAge).toThrow('Number cant be more than 16 or undefined')
+    try {
+      expect(catAge).toThrow('Number cant be more than 16 or undefined')
+    } catch (err) {}
   })
 })

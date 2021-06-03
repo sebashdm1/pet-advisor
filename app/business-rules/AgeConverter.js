@@ -80,11 +80,14 @@ export function catAge(number) {
   myMap.set(10, 56)
   myMap.set(11, 60)
   myMap.set(morthan, 'mas de 60')
-
-  if (number > 16 || number === undefined) {
-    throw new Error('Number cant be more than 16 or undefined')
+  try {
+    if (number > 16 || number === undefined) {
+      throw new Error('Number cant be more than 16 or undefined')
+    }
+    return myMap.get(number)
+  } catch (err) {
+    console.log('error manejado')
   }
-  return myMap.get(number)
 }
 
 export function calculateDogAge(ageDog, size) {

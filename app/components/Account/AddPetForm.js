@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {StyleSheet, ScrollView, Alert, Dimensions} from 'react-native'
+import {StyleSheet, ScrollView} from 'react-native'
 import {addDocument} from '../../services/service'
 import {Input, Icon, Button} from 'react-native-elements'
 import Loading from '../Loading'
@@ -17,22 +17,15 @@ import {
 export default function AddPetForm(props) {
   const {toastRef, navigation} = props
   const [isLoading, setIsLoading] = useState(false)
+  const [isSaving, setIsSaving] = useState(false)
   const [formData, setFormData] = useState(defaultFormValues())
   const [errorBreed, setErrorBreed] = useState(null)
   const [errorName, setErrorName] = useState(null)
   const [errorAge, setErrorAge] = useState(null)
   const [errorWeigth, setErrorWeight] = useState(null)
-  let resultAge
 
   const handleChange = (e, type) => {
     setFormData({...formData, [type]: e.nativeEvent.text})
-  }
-
-  const clearErros = () => {
-    setErrorBreed('')
-    setErrorName('')
-    setErrorAge('')
-    setErrorWeight('')
   }
 
   const validateData = () => {
@@ -54,25 +47,36 @@ export default function AddPetForm(props) {
       setErrorWeight('El peso es requerido')
       isValid = false
     }
+    if (formData.age > 16) {
+      setErrorAge('No puede ser mayor a 16')
+      isValid = false
+    }
     return isValid
+  }
+
+  const clearErros = () => {
+    setErrorBreed('')
+    setErrorName('')
+    setErrorAge('')
+    setErrorWeight('')
+  }
+
+  const pet = {
+    type: 'cat',
+    breed: formData.breed,
+    petName: formData.name,
+    petAge: formData.age,
+    humanAge: isDogOrCat(formData.type, formData.age),
+    petWeight: formData.weight,
+    createAt: new Date(),
   }
 
   const handleSubmit = () => {
     if (!validateData()) {
       return
     }
-    resultAge = isDogOrCat(formData.type, formData.age)
     setIsLoading(true)
-    const pet = {
-      type: 'cat',
-      breed: formData.breed,
-      petName: formData.name,
-      petAge: formData.age,
-      humanAge: resultAge,
-      petWeight: formData.weight,
-      createAt: new Date(),
-    }
-    console.log(pet)
+    setIsSaving(true)
     addDocument('pets', pet, db)
       .then(() => {
         setIsLoading(false)
@@ -124,7 +128,7 @@ export default function AddPetForm(props) {
         onChange={e => handleChange(e, 'weight')}
       />
       <Button
-        disabled={isLoading}
+        disabled={isSaving}
         testID="button"
         title="Agregar Mascota"
         onPress={handleSubmit}
@@ -134,6 +138,7 @@ export default function AddPetForm(props) {
     </ScrollView>
   )
 }
+
 const defaultFormValues = () => {
   return {breed: '', name: '', age: '', weight: ''}
 }
